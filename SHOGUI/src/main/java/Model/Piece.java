@@ -7,7 +7,12 @@ public abstract class Piece{
     protected boolean isWhite;
 
     //Metodes
-    public Piece(String name, int x, int y, boolean isWhite) {}
+    public Piece(String name, int x, int y, boolean isWhite) {
+        this.name = name;
+        this.x = x;
+        this.y = y;
+        this.isWhite = isWhite;
+    }
 
     public abstract boolean isValidMove(int newX, int newY, Piece[][] board);
 

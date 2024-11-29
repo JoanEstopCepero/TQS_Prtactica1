@@ -3,7 +3,8 @@ package Model.pieces;
 import Model.Piece;
 
 public class Pawn extends Piece {
-    public Pawn(int x, int y, boolean isWhite){
+    public Pawn(String name, int x, int y, boolean isWhite){
+        super(name, x, y, isWhite);
     }
 
     @Override

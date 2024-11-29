@@ -16,7 +16,10 @@ public abstract class Piece{
 
     public abstract boolean isValidMove(int newX, int newY, Piece[][] board);
 
-    public void move(int newX, int newY) {}
+    public void move(int newX, int newY) {
+        this.x = newX;
+        this.y = newY;
+    }
 
     //Getters
     public int getX() {

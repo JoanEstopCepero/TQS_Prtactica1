@@ -1,22 +1,21 @@
 package Model;
-import java.util.Arrays;
-public class Board {
+import Model.pieces.*;
+
+public class Board{
     //Atributs
-    private Piece[][] board;
+    private Piece[][] board = new Piece[9][9];
 
-    //Mètodes
-    public Board(){
-        board = new Piece[8][8];
-        initialize_board();
+    //Metodes
+    public Board() {}
+    private void initializeBoard() {}
+    public boolean movePiece(int x, int y, int newX, int newY) {return false;}
+    private boolean dintreLimits(int x, int y) {return false;}
+
+
+    //Getters
+    public Piece getPiece(int x, int y) {
+        return board[x][y];
     }
-    private void initialize_board(){};
-    public Piece getPieceAt(int x, int y){
-        return null;
-    };
-    private void move_piece(int startX, int startY, int endX, int endY){};
-    public boolean is_inside_board(int x, int y){
-        return false;
-    };
 
-    public Piece[][] getBoard() {return board;}
+
 }

@@ -1,18 +1,38 @@
 package Model;
 
-import java.util.List;
-
-public class Piece {
+public abstract class Piece{
     //Atributs
-    private Player owner;
-    private boolean is_promoted;
+    protected String name;
+    protected int x, y;
+    protected boolean isWhite;
 
-    //Mètodes
-    public List<Move> getPossibleMoves(Board board, int x, int y){
-        return null;
+    //Metodes
+    public Piece(String name, int x, int y, boolean isWhite) {}
+
+    public abstract boolean isValidMove(int newX, int newY, Piece[][] board);
+
+    public void move(int newX, int newY) {}
+
+    //Getters
+    public int getX() {
+        return x;
     }
-    public void promote(){};
 
-    public Player getOwner() {return owner;}
-    public boolean isIs_promoted() {return is_promoted;}
+    public int getY() {
+        return y;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public boolean isWhite() {
+        return isWhite;
+    }
+
+    //Setters
+    public void setPosition(int newX, int newY) {
+        x = newX;
+        y = newY;
+    }
 }

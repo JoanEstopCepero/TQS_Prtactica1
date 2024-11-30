@@ -27,7 +27,7 @@ public class KingTest {
 
             MockBoardW[4][4] = new Pawn(4, 4, false);
             MockBoardW[6][4] = new Pawn(6, 4, false);
-            MockBoardW[3][5] = new Pawn(3, 5, true);
+            MockBoardW[5][3] = new Pawn(5, 3, true);
             MockBoardW[5][5] = new Pawn(5, 5, true);
         }
         public Piece getPiece(int x, int y) {
@@ -49,7 +49,7 @@ public class KingTest {
 
             MockBoardB[4][4] = new Pawn(4, 4, true);
             MockBoardB[6][4] = new Pawn(6, 4, true);
-            MockBoardB[3][5] = new Pawn(3, 5, false);
+            MockBoardB[5][3] = new Pawn(5, 3, false);
             MockBoardB[5][5] = new Pawn(5, 5, false);
         }
         public Piece getPiece(int x, int y) {

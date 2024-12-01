@@ -79,6 +79,27 @@ public class RookTests {
         assertFalse(rook_00.isValidMove(0, 9, taulell_aux.MockBoard), "es mou fora taulell");
         assertFalse(rook_00.isValidMove(0, -1, taulell_aux.MockBoard), "es mou fora taulell");
         assertTrue(rook_00.isValidMove(0, 2, taulell_aux.MockBoard), "no permet moviment correcte");
+
+        Piece rook_22 = taulell_aux.getPiece(2,2);
+        assertTrue(rook_22.isValidMove(2, 3, taulell_aux.MockBoard), "no permet moviment correcte");
+        assertTrue(rook_22.isValidMove(0, 2, taulell_aux.MockBoard), "no permet moviment correcte");
+        assertTrue(rook_00.isValidMove(0, 8, taulell_aux.MockBoard), "no permet moviment correcte");
+        assertTrue(rook_00.isValidMove(6, 0, taulell_aux.MockBoard), "no permet moviment correcte");
+        assertFalse(rook_22.isValidMove(6, 2, taulell_aux.MockBoard), "permet atravessar");
+        assertFalse(rook_22.isValidMove(3, 3, taulell_aux.MockBoard), "permet diagonals");
+
+
+
+        Piece rook_55B = taulell_aux.getPiece(5,5);
+        assertTrue(rook_55B.isValidMove(5, 3, taulell_aux.MockBoard), "no permet moviment correcte");
+        assertTrue(rook_55B.isValidMove(5, 8, taulell_aux.MockBoard), "no permet moviment correcte");
+        assertTrue(rook_55B.isValidMove(8, 5, taulell_aux.MockBoard), "no permet moviment correcte");
+        assertFalse(rook_55B.isValidMove(5, 0, taulell_aux.MockBoard), "permet atravessar");
+        assertFalse(rook_55B.isValidMove(7, 7, taulell_aux.MockBoard), "permet diagonals");
+        
+
+
+
     }
 
 }

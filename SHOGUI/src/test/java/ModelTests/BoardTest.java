@@ -94,4 +94,25 @@ public class BoardTest {
         assertFalse(tauler.getPiece(2,6).isWhite(), "fitxa incorrecte");
         assertFalse(tauler.getPiece(1,6).isWhite(), "fitxa incorrecte");
     }
+
+    @Test
+    void testMovePiece(){
+        Board tauler = new Board();
+        assertTrue(tauler.movePiece(0,0,0,1), "no permet moviment correcte");
+        assertTrue(tauler.movePiece(1,1,5,1), "no permet moviment correcte");
+        assertTrue(tauler.movePiece(5,2,5,3), "no permet moviment correcte");
+
+        assertFalse(tauler.movePiece(0,0,0,3), "permet moviment incorrecte");
+        assertFalse(tauler.movePiece(2,2,2,5), "permet moviment incorrecte");
+        assertFalse(tauler.movePiece(7,0,6,2), "permet moviment incorrecte");
+
+        assertTrue(tauler.movePiece(8,8,8,7), "no permet moviment correcte");
+        assertTrue(tauler.movePiece(2,6,2,5), "no permet moviment correcte");
+        assertTrue(tauler.movePiece(4,8,4,7), "no permet moviment correcte");
+
+        assertFalse(tauler.movePiece(0,8,0,3), "permet moviment incorrecte");
+        assertFalse(tauler.movePiece(4,8,4,9), "permet moviment incorrecte");
+        assertFalse(tauler.movePiece(7,7,5,5), "permet moviment incorrecte");
+    }
+
 }

@@ -9,6 +9,12 @@ public class Bishop extends Piece {
     public boolean isValidMove(int newX, int newY, Piece[][] board){
         if((newX >= 0 && newX < 9)&&(newY >= 0 && newY < 9))
         {
+            int dx = Math.abs(newX - x);
+            int dy = Math.abs(newY - y);
+
+            if (dx != dy) {
+                return false; // Solo se mueve en diagonal
+            }
             return true;
         }
             return false;

@@ -1,6 +1,8 @@
 package ModelTests.pieces;
 
+import Model.Board;
 import Model.Piece;
+import Model.pieces.GoldGeneral;
 import Model.pieces.Knight;
 import Model.pieces.Pawn;
 import org.junit.jupiter.api.Test;
@@ -9,6 +11,26 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class KnightTest {
+    public class MockBoardW extends Board
+    {
+        private Piece[][] MockBoardW = new Piece[9][9];
+        public MockBoardW(){
+            initializeBoard();
+        }
+        public void initializeBoard(){
+            MockBoardW[0][0] = new Knight(0, 0, true);
+            MockBoardW[8][8] = new Knight(8, 8, true);
+
+            MockBoardW[2][4] = new Knight(2, 4, true);
+            MockBoardW[5][4] = new Knight(5, 4, true);
+
+            MockBoardW[6][2] = new Pawn(6, 2, false);
+            MockBoardW[4][2] = new Pawn(4, 2, true);
+        }
+        public Piece getPiece(int x, int y) {
+            return MockBoardW[x][y];
+        }
+    }
     @Test
     void testConstructorKing() {
         Knight whiteKnight = new Knight(0, 0, true);
@@ -46,5 +68,19 @@ public class KnightTest {
 
         assertThrows(IllegalArgumentException.class, () -> new Knight(10, 10, true),
                 "El constructor hauria de llemçar excepcio valors molt positius");
+    }
+
+    @Test
+    void testIsValidMoveKnight() {
+        MockBoardW taulell_aux_w = new MockBoardW();
+        Piece knight_00 = taulell_aux_w.getPiece(0,0);
+        assertFalse(knight_00.isValidMove(-1, -1, taulell_aux_w.MockBoardW), "es mou fora taulell");
+        assertFalse(knight_00.isValidMove(1, -1, taulell_aux_w.MockBoardW), "es mou fora taulell");
+        assertFalse(knight_00.isValidMove(-1, 1, taulell_aux_w.MockBoardW), "es mou fora taulell");
+
+        Piece knight_88 = taulell_aux_w.getPiece(8,8);
+        assertFalse(knight_88.isValidMove(8, 9, taulell_aux_w.MockBoardW), "es mou fora taulell");
+        assertFalse(knight_88.isValidMove(9, 9, taulell_aux_w.MockBoardW), "es mou fora taulell");
+        assertFalse(knight_88.isValidMove(7, 9, taulell_aux_w.MockBoardW), "es mou fora taulell");
     }
 }

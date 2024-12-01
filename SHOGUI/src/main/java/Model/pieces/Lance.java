@@ -28,7 +28,9 @@ public class Lance extends Piece{
                 }
             }
 
-            return true;
+            // Verificar destino
+            Piece targetPiece = board[newX][newY];
+            return targetPiece == null || targetPiece.isWhite() != this.isWhite;
         }
         return false;
     }

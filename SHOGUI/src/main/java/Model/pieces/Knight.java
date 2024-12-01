@@ -10,7 +10,14 @@ public class Knight extends Piece {
     public boolean isValidMove(int newX, int newY, Piece[][] board){
         if((newX >= 0 && newX < 9)&&(newY >= 0 && newY < 9))
         {
-            return true;
+            int dx = Math.abs(newX - x);
+            int dy = newY - y;
+
+            int direction = isWhite ? 1 : -1; // Blancos suben, negros bajan
+
+            if (dx == 1 && dy == 2 * direction) {
+                return true;
+            }
         }
         return false;
     }

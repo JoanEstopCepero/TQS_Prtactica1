@@ -25,7 +25,9 @@ public class Rook extends Piece{
                 currX += stepX;
                 currY += stepY;
             }
-            return true;
+            // Verificar destino
+            Piece targetPiece = board[newX][newY];
+            return targetPiece == null || targetPiece.isWhite() != this.isWhite;
         }
         return false;
     }

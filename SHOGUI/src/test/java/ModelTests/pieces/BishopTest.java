@@ -1,7 +1,9 @@
 package ModelTests.pieces;
 
+import Model.Board;
 import Model.Piece;
 import Model.pieces.Bishop;
+import Model.pieces.Knight;
 import Model.pieces.Pawn;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -10,6 +12,28 @@ import org.junit.jupiter.api.Test;
 
 
 public class BishopTest {
+
+    public class MockBoard extends Board
+    {
+        private Piece[][] MockBoard = new Piece[9][9];
+        public MockBoard(){
+            initializeBoard();
+        }
+        public void initializeBoard(){
+            MockBoard[2][4] = new Bishop(2, 4, true);
+            MockBoard[5][4] = new Bishop(5, 4, true);
+
+            MockBoard[5][0] = new Bishop(5, 0, false);
+            MockBoard[7][7] = new Bishop(7, 7, false);
+
+            MockBoard[3][2] = new Pawn(3, 2, false);
+            MockBoard[7][2] = new Pawn(7, 2, true);
+        }
+        public Piece getPiece(int x, int y) {
+            return MockBoard[x][y];
+        }
+    }
+
     @Test
     void testConstructorBishop() {
         Bishop whiteBishop = new Bishop(0, 0, true);
@@ -47,6 +71,17 @@ public class BishopTest {
 
         assertThrows(IllegalArgumentException.class, () -> new Bishop(10, 10, true),
                 "El constructor hauria de llemçar excepcio valors molt positius");
+    }
+
+    @Test
+    void testIsValidMoveBishop(){
+        MockBoard taulell_aux = new MockBoard();
+        Piece bishop_24 = taulell_aux.getPiece(2,4);
+        assertFalse(bishop_24.isValidMove(-1, 1, taulell_aux.MockBoard), "es mou fora taulell");
+        assertFalse(bishop_24.isValidMove(7, -1, taulell_aux.MockBoard), "es mou fora taulell");
+        assertTrue(bishop_24.isValidMove(1, 3, taulell_aux.MockBoard), "no permet moviment correcte");
+
+
     }
 
 }

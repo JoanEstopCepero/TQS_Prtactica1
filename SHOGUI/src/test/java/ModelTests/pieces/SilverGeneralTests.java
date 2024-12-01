@@ -46,7 +46,7 @@ public class SilverGeneralTests {
             MockBoardB[5][4] = new SilverGeneral(5, 4, false);
 
             MockBoardB[6][5] = new Pawn(6, 5, true);
-            MockBoardB[5][5] = new Pawn(5, 5, false);
+            MockBoardB[5][3] = new Pawn(5, 3, false);
         }
         public Piece getPiece(int x, int y) {
             return MockBoardB[x][y];
@@ -135,6 +135,6 @@ public class SilverGeneralTests {
 
         Piece sg_54B = taulell_aux_b.getPiece(5,4);
         assertTrue(sg_54B.isValidMove(6, 5, taulell_aux_b.MockBoardB), "no permet menjar");
-        assertFalse(sg_54B.isValidMove(5, 5, taulell_aux_b.MockBoardB), "permet menjar blanques");
+        assertFalse(sg_54B.isValidMove(5, 3, taulell_aux_b.MockBoardB), "permet menjar blanques");
     }
 }

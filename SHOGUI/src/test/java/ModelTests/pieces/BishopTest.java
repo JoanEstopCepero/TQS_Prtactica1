@@ -101,6 +101,10 @@ public class BishopTest {
         assertTrue(bishop_88B.isValidMove(3, 3, taulell_aux.MockBoard), "no permet mov valid");
         assertTrue(bishop_88B.isValidMove(1, 1, taulell_aux.MockBoard), "no permet mov valid");
         assertTrue(bishop_88B.isValidMove(0, 0, taulell_aux.MockBoard), "no permet mov valid");
+
+        Piece knight_54 = taulell_aux.getPiece(5,4);
+        assertTrue(knight_54.isValidMove(3, 2, taulell_aux.MockBoard), "no permet menjar");
+        assertFalse(knight_54.isValidMove(7, 2, taulell_aux.MockBoard), "permet menjar blanques");
     }
 
 }

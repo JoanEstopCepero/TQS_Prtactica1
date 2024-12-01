@@ -108,6 +108,9 @@ public class GoldGeneralTest {
         assertTrue(gg_24.isValidMove(3, 5, taulell_aux_w.MockBoardW), "no permet moviment correcte");
         assertTrue(gg_24.isValidMove(1, 4, taulell_aux_w.MockBoardW), "no permet moviment correcte");
         assertTrue(gg_24.isValidMove(2, 3, taulell_aux_w.MockBoardW), "no permet moviment correcte");
+        assertFalse(gg_24.isValidMove(1, 3, taulell_aux_w.MockBoardW), "permet moviment invalid");
+        assertFalse(gg_24.isValidMove(3, 3, taulell_aux_w.MockBoardW), "permet moviment invalid");
+
         assertFalse(gg_24.isValidMove(2, 6, taulell_aux_w.MockBoardW), "permet moviments dobles");
         assertFalse(gg_24.isValidMove(0, 4, taulell_aux_w.MockBoardW), "permet moviments dobles");
 
@@ -130,6 +133,9 @@ public class GoldGeneralTest {
         assertTrue(gg_24B.isValidMove(1, 4, taulell_aux_b.MockBoardB), "no permet moviment correcte");
         assertTrue(gg_24B.isValidMove(2, 5, taulell_aux_b.MockBoardB), "no permet moviment cap abaix");
         assertTrue(gg_24B.isValidMove(1, 3, taulell_aux_b.MockBoardB), "no permet moviment correcte");
+        assertFalse(gg_24B.isValidMove(3, 5, taulell_aux_b.MockBoardB), "permet moviment invalid");
+        assertFalse(gg_24B.isValidMove(1, 5, taulell_aux_b.MockBoardB), "permet moviment invalid");
+
         assertFalse(gg_24B.isValidMove(2, 6, taulell_aux_b.MockBoardB), "permet moviments dobles");
         assertFalse(gg_24B.isValidMove(1, 2, taulell_aux_b.MockBoardB), "permet moviments dobles");
 

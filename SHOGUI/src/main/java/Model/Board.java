@@ -56,7 +56,19 @@ public class Board{
         return false;
     }
 
-    public void displayBoard() {}
+    public void displayBoard() {
+        for (int y = 0; y < 9; y++) {
+            for (int x = 0; x < 9; x++) {
+                Piece piece = board[x][y];
+                if (piece == null) {
+                    System.out.print(". ");
+                } else {
+                    System.out.print((piece.isWhite() ? "W" : "B") + piece.getName() + " ");
+                }
+            }
+            System.out.println();
+        }
+    }
     //Getters
     public Piece getPiece(int x, int y) {
         return board[x][y];

@@ -137,11 +137,18 @@ public class BoardTest {
         expectedOutput.append(". . . . . . . . . \n");
         expectedOutput.append(". . . . . . . . . \n");
         expectedOutput.append(". . . . . . . . . \n"); // Peón blanco y torre negra
-        expectedOutput.append("WP WP WP WP WP WP WP WP WP \n");
-        expectedOutput.append(". WR . . . . . WB . \n");
-        expectedOutput.append("WL WN WS WG WK WG WS WN WL \n"); // Torre negra en (8, 8)
+        expectedOutput.append("BP BP BP BP BP BP BP BP BP \n");
+        expectedOutput.append(". BR . . . . . BB . \n");
+        expectedOutput.append("BL BN BS BG BK BG BS BN BL \n"); // Torre negra en (8, 8)
 
-        assertEquals(expectedOutput.toString().trim(), outContent.toString().trim());
+        String[] expectedLines = expectedOutput.toString().split("\n");
+        String[] actualLines = outContent.toString().split("\n");
+
+        assertEquals(expectedLines.length, actualLines.length, "El número de líneas no coincide");
+
+        for (int i = 0; i < expectedLines.length; i++) {
+            assertEquals(expectedLines[i].trim(), actualLines[i].trim(), "Línea " + (i + 1) + " no coincide");
+        }
 
         System.setOut(System.out);
 

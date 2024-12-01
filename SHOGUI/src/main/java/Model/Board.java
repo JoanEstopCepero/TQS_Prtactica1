@@ -79,6 +79,14 @@ public class Board{
     }
 
     public int[] findKing(boolean isWhiteKing) {
-        return null;
+        for (int x = 0; x < 9; x++) {
+            for (int y = 0; y < 9; y++) {
+                Piece piece = board[x][y];
+                if (piece != null && piece.getName().equals("K") && piece.isWhite() == isWhiteKing) {
+                    return new int[]{x, y}; // Devuelve las coordenadas del rey
+                }
+            }
+        }
+        return null; //No hay rey
     }
 }

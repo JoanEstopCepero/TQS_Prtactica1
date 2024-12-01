@@ -45,7 +45,16 @@ public class Board{
             board[i][6] = new Pawn(i, 6, false);
         }
     }
-    public boolean movePiece(int x, int y, int newX, int newY) {return false;}
+    public boolean movePiece(int x, int y, int newX, int newY) {
+        Piece piece = board[x][y];
+        if (piece != null && piece.isValidMove(newX, newY, board)) {
+            board[newX][newY] = piece;
+            board[x][y] = null;
+            piece.move(newX, newY);
+            return true;
+        }
+        return false;
+    }
     private boolean dintreLimits(int x, int y) {return false;}
 
 

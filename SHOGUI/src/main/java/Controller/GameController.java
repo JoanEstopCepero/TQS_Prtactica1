@@ -30,8 +30,10 @@ public class GameController {
                         System.out.println((isWhiteTurn ? "Black" : "White") + " king is in check!");
                     }
                     board.checkGameOver();
-
-
+                    if(null == board.findKing(!isWhiteTurn))
+                    {
+                        board.gameOver = true;
+                    }
                     isWhiteTurn = !isWhiteTurn;
                 } else {
                     System.out.println("Invalid move, try again.");

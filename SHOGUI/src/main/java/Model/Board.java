@@ -4,7 +4,7 @@ import Model.pieces.*;
 public class Board{
     //Atributs
     public Piece[][] board = new Piece[9][9];
-    private boolean gameOver;
+    public boolean gameOver;
 
     //Metodes
     public Board() {

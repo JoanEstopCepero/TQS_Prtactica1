@@ -1,9 +1,14 @@
 package ModelTests;
-
+import Model.Piece;
+import Model.pieces.Pawn;
+import Model.pieces.Rook;
 import Model.Board;
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
 
 public class BoardTest {
     @Test
@@ -113,6 +118,33 @@ public class BoardTest {
         assertFalse(tauler.movePiece(0,8,0,3), "permet moviment incorrecte");
         assertFalse(tauler.movePiece(4,8,4,9), "permet moviment incorrecte");
         assertFalse(tauler.movePiece(7,7,5,5), "permet moviment incorrecte");
+    }
+
+
+    @Test
+    void testDisplayBoard(){
+        Board tauler = new Board();
+
+        ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(outContent));
+
+        tauler.displayBoard();
+
+        StringBuilder expectedOutput = new StringBuilder();
+        expectedOutput.append("WL WN WS WG WK WG WS WN WL \n"); // Primera fila con WR (White Rook)
+        expectedOutput.append(". WR . . . . . WB . \n");
+        expectedOutput.append("WP WP WP WP WP WP WP WP WP \n"); // Torre blanca en (2, 2)
+        expectedOutput.append(". . . . . . . . . \n");
+        expectedOutput.append(". . . . . . . . . \n");
+        expectedOutput.append(". . . . . . . . . \n"); // Peón blanco y torre negra
+        expectedOutput.append("WP WP WP WP WP WP WP WP WP \n");
+        expectedOutput.append(". WR . . . . . WB . \n");
+        expectedOutput.append("WL WN WS WG WK WG WS WN WL \n"); // Torre negra en (8, 8)
+
+        assertEquals(expectedOutput.toString().trim(), outContent.toString().trim());
+
+        System.setOut(System.out);
+
     }
 
 }

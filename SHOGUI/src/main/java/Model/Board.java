@@ -55,9 +55,8 @@ public class Board{
         }
         return false;
     }
-    private boolean dintreLimits(int x, int y) {return false;}
 
-
+    public void displayBoard() {}
     //Getters
     public Piece getPiece(int x, int y) {
         return board[x][y];

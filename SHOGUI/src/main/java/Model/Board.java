@@ -6,8 +6,12 @@ public class Board{
     private Piece[][] board = new Piece[9][9];
 
     //Metodes
-    public Board() {}
-    private void initializeBoard() {}
+    public Board() {
+        initializeBoard();
+    }
+    private void initializeBoard() {
+
+    }
     public boolean movePiece(int x, int y, int newX, int newY) {return false;}
     private boolean dintreLimits(int x, int y) {return false;}
 

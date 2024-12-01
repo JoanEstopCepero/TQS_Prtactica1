@@ -127,7 +127,7 @@ public class KnightTest {
         assertFalse(knight_88B.isValidMove(8, 9, taulell_aux_b.MockBoardB), "es mou fora taulell");
         assertFalse(knight_88B.isValidMove(9, 9, taulell_aux_b.MockBoardB), "es mou fora taulell");
         assertFalse(knight_88B.isValidMove(7, 9, taulell_aux_b.MockBoardB), "es mou fora taulell");
-        assertTrue(knight_00B.isValidMove(7, 6, taulell_aux_b.MockBoardB), "no permet moviment correcte");
+        assertTrue(knight_88B.isValidMove(7, 6, taulell_aux_b.MockBoardB), "no permet moviment correcte");
 
 
         Piece knight_24B = taulell_aux_b.getPiece(2,4);

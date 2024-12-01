@@ -16,7 +16,8 @@ public class Knight extends Piece {
             int direction = isWhite ? 1 : -1; // Blancos suben, negros bajan
 
             if (dx == 1 && dy == 2 * direction) {
-                return true;
+                Piece targetPiece = board[newX][newY];
+                return targetPiece == null || targetPiece.isWhite() != this.isWhite;
             }
         }
         return false;

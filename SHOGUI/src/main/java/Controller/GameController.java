@@ -7,9 +7,8 @@ import java.util.Scanner;
 public class GameController {
     private final Board board;
 
-    public GameController(Board board) {
-        this.board = board;
-    }
+    public GameController() {
+        this.board = new Board();    }
     public void startGame(){
         Scanner scanner = new Scanner(System.in);
         boolean isWhiteTurn = true;

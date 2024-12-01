@@ -118,6 +118,38 @@ public class Board{
     }
 
     public boolean isKingInCheckmate(boolean isWhiteKing) {
-        return false;
+        if (!isKingInCheck(isWhiteKing)) {
+            return false;
+        }
+
+        int[] kingPosition = findKing(isWhiteKing);
+        if (kingPosition == null) return false;
+
+        int kingX = kingPosition[0];
+        int kingY = kingPosition[1];
+
+        for (int dx = -1; dx <= 1; dx++) {
+            for (int dy = -1; dy <= 1; dy++) {
+                int newX = kingX + dx;
+                int newY = kingY + dy;
+                if (newX >= 0 && newX < 9 && newY >= 0 && newY < 9) {
+                    if (board[kingX][kingY].isValidMove(newX, newY, board)) {
+                        Piece original = board[newX][newY];
+                        board[newX][newY] = board[kingX][kingY];
+                        board[kingX][kingY] = null;
+
+                        boolean stillInCheck = isKingInCheck(isWhiteKing);
+
+                        board[kingX][kingY] = board[newX][newY];
+                        board[newX][newY] = original;
+
+                        if (!stillInCheck) {
+                            return false;
+                        }
+                    }
+                }
+            }
+        }
+        return true;
     }
 }

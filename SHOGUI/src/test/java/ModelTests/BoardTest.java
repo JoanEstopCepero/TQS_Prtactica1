@@ -203,8 +203,8 @@ public class BoardTest {
     public void testKingInCheckMate() {
         Board tauler = new Board();
         tauler.cleanBoard();
-        Rook whiteRook = new Rook(0, 0, true);
-        Rook blackRook = new Rook(8, 8, false);
+        Rook whiteRook = new Rook(4, 5, true);
+        Rook blackRook = new Rook(4, 4, false);
         King whiteKing = new King(4, 0, true);
         King blackKing= new King(4, 8, false);
         Pawn pawn50 = new Pawn(5, 0, true);

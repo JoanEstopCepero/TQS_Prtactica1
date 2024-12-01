@@ -1,6 +1,9 @@
 package ModelTests.pieces;
 
+import Model.Board;
 import Model.Piece;
+import Model.pieces.Lance;
+import Model.pieces.Pawn;
 import Model.pieces.Rook;
 import org.junit.jupiter.api.Test;
 
@@ -8,6 +11,27 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class RookTests {
+    public class MockBoard extends Board
+    {
+        private Piece[][] MockBoard = new Piece[9][9];
+        public MockBoard(){
+            initializeBoard();
+        }
+        public void initializeBoard(){
+            MockBoard[0][0] = new Rook(0, 0, true);
+            MockBoard[2][2] = new Rook(2, 2, true);
+
+
+            MockBoard[5][5] = new Rook(5, 5, false);
+            MockBoard[8][8] = new Rook(8, 8, false);
+
+            MockBoard[5][2] = new Pawn(2, 4, true);
+            MockBoard[2][5] = new Pawn(3, 3, false);
+        }
+        public Piece getPiece(int x, int y) {
+            return MockBoard[x][y];
+        }
+    }
     @Test
     void testConstructorLance() {
         Rook whiteRook = new Rook(0, 0, true);
@@ -45,6 +69,16 @@ public class RookTests {
 
         assertThrows(IllegalArgumentException.class, () -> new Rook(10, 10, true),
                 "El constructor hauria de llemçar excepcio valors molt positius");
+    }
+
+    @Test
+    void testIsValidMoveRook()
+    {
+        MockBoard taulell_aux = new MockBoard();
+        Piece rook_00 = taulell_aux.getPiece(0,0);
+        assertFalse(rook_00.isValidMove(0, 9, taulell_aux.MockBoard), "es mou fora taulell");
+        assertFalse(rook_00.isValidMove(0, -1, taulell_aux.MockBoard), "es mou fora taulell");
+        assertTrue(rook_00.isValidMove(0, 2, taulell_aux.MockBoard), "no permet moviment correcte");
     }
 
 }

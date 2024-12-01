@@ -61,8 +61,8 @@ public class BoardTest {
         assertEquals("G", tauler.getPiece(3,8).getName(), "fitxa incorrecte");
         assertEquals("G", tauler.getPiece(5,8).getName(), "fitxa incorrecte");
         assertEquals("K", tauler.getPiece(4,8).getName(), "fitxa incorrecte");
-        assertEquals("R", tauler.getPiece(7,7).getName(), "fitxa incorrecte");
-        assertEquals("B", tauler.getPiece(1,7).getName(), "fitxa incorrecte");
+        assertEquals("R", tauler.getPiece(1,7).getName(), "fitxa incorrecte");
+        assertEquals("B", tauler.getPiece(7,7).getName(), "fitxa incorrecte");
         assertEquals("P", tauler.getPiece(0,6).getName(), "fitxa incorrecte");
         assertEquals("P", tauler.getPiece(1,6).getName(), "fitxa incorrecte");
         assertEquals("P", tauler.getPiece(2,6).getName(), "fitxa incorrecte");

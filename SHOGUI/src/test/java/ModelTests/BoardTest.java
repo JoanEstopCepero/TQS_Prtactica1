@@ -199,6 +199,46 @@ public class BoardTest {
     }
 
 
+    @Test
+    public void testKingInCheckMate() {
+        Board tauler = new Board();
+        tauler.cleanBoard();
+        Rook whiteRook = new Rook(0, 0, true);
+        Rook blackRook = new Rook(8, 8, false);
+        King whiteKing = new King(4, 0, true);
+        King blackKing= new King(4, 8, false);
+        Pawn pawn50 = new Pawn(5, 0, true);
+        Pawn pawn30 = new Pawn(3, 0, true);
+        Pawn pawn51 = new Pawn(5, 1, true);
+        Pawn pawn31 = new Pawn(3, 1, true);
+
+        Pawn pawn58 = new Pawn(5, 8, false);
+        Pawn pawn38 = new Pawn(3, 8, false);
+        Pawn pawn57 = new Pawn(5, 7, false);
+        Pawn pawn37 = new Pawn(3, 7, false);
+
+
+
+        tauler.board[4][0] = whiteKing;
+        tauler.board[4][5] = whiteRook;
+        tauler.board[4][8] = blackKing;
+        tauler.board[4][4] = blackRook;
+        tauler.board[5][0] = pawn50;
+        tauler.board[3][0] = pawn30;
+        tauler.board[5][8] = pawn58;
+        tauler.board[3][8] = pawn38;
+
+        assertFalse(tauler.isKingInCheckmate(true), "detecta hake mate quan no n'hi ha");
+        assertFalse(tauler.isKingInCheckmate(false), "detecta hake mate quan no n'hi ha");
+
+        tauler.board[5][1] = pawn51;
+        tauler.board[3][1] = pawn31;
+        tauler.board[5][7] = pawn57;
+        tauler.board[3][7] = pawn37;
+        assertTrue(tauler.isKingInCheckmate( true), "no detecta mate hake");
+        assertTrue(tauler.isKingInCheckmate( false), "no detecta mate hake");
+    }
+
 
 
 }

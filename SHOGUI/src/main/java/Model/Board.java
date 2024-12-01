@@ -116,4 +116,8 @@ public class Board{
             }
         }
     }
+
+    public boolean isKingInCheckmate(boolean isWhiteKing) {
+        return false;
+    }
 }

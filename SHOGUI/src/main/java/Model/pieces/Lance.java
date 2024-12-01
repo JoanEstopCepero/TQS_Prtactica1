@@ -20,6 +20,14 @@ public class Lance extends Piece{
                 return false; // Solo puede avanzar
             }
 
+            // Verificar que el camino esté libre
+            int step = direction > 0 ? 1 : -1;
+            for (int i = y + step; i != newY; i += step) {
+                if (board[x][i] != null) {
+                    return false;
+                }
+            }
+
             return true;
         }
         return false;

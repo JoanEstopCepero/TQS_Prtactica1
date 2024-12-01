@@ -24,6 +24,7 @@ public class LanceTest {
 
 
             MockBoard[5][5] = new Lance(5, 5, false);
+            MockBoard[8][8] = new Lance(8, 8, false);
 
             MockBoard[2][4] = new Pawn(2, 4, true);
             MockBoard[3][3] = new Pawn(3, 3, false);
@@ -85,12 +86,27 @@ public class LanceTest {
         Piece lance_22 = taulell_aux.getPiece(2,2);
         assertFalse(lance_22.isValidMove(2, 1, taulell_aux.MockBoard), "es mou cap enrere");
         assertTrue(lance_22.isValidMove(2, 3, taulell_aux.MockBoard), "no permet moviment correcte");
-        assertTrue(lance_22.isValidMove(2, 6, taulell_aux.MockBoard), "no permet moviment correcte");
+        assertFalse(lance_22.isValidMove(2, 6, taulell_aux.MockBoard), "permet atravessar");
+
         Piece lance_55B = taulell_aux.getPiece(5,5);
         assertFalse(lance_55B.isValidMove(5, 6, taulell_aux.MockBoard), "permet moviment enrere");
         assertTrue(lance_55B.isValidMove(5, 3, taulell_aux.MockBoard), "no permet moviment correcte");
-        assertTrue(lance_55B.isValidMove(5, 0, taulell_aux.MockBoard), "no permet moviment correcte");
+        assertFalse(lance_55B.isValidMove(5, 0, taulell_aux.MockBoard), "permet atravessar");
 
+        assertTrue(lance_00.isValidMove(0, 1, taulell_aux.MockBoard), "no permet moviment correcte");
+        assertTrue(lance_00.isValidMove(0, 2, taulell_aux.MockBoard), "no permet moviment correcte");
+        assertTrue(lance_00.isValidMove(0, 3, taulell_aux.MockBoard), "no permet moviment correcte");
+        assertTrue(lance_00.isValidMove(0, 5, taulell_aux.MockBoard), "no permet moviment correcte");
+        assertTrue(lance_00.isValidMove(0, 7, taulell_aux.MockBoard), "no permet moviment correcte");
+        assertTrue(lance_00.isValidMove(0, 8, taulell_aux.MockBoard), "no permet moviment correcte");
+
+        Piece lance_88B = taulell_aux.getPiece(8,8);
+        assertTrue(lance_88B.isValidMove(8, 7, taulell_aux.MockBoard), "no permet moviment correcte");
+        assertTrue(lance_88B.isValidMove(8, 6, taulell_aux.MockBoard), "no permet moviment correcte");
+        assertTrue(lance_88B.isValidMove(8, 5, taulell_aux.MockBoard), "no permet moviment correcte");
+        assertTrue(lance_88B.isValidMove(8, 3, taulell_aux.MockBoard), "no permet moviment correcte");
+        assertTrue(lance_88B.isValidMove(8, 1, taulell_aux.MockBoard), "no permet moviment correcte");
+        assertTrue(lance_88B.isValidMove(8, 0, taulell_aux.MockBoard), "no permet moviment correcte");
 
     }
 

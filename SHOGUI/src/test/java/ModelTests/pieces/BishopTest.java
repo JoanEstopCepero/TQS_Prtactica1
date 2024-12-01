@@ -82,6 +82,13 @@ public class BishopTest {
         assertTrue(bishop_24.isValidMove(1, 3, taulell_aux.MockBoard), "no permet moviment correcte");
 
 
+        assertFalse(bishop_24.isValidMove(1, 2, taulell_aux.MockBoard), "pemet moviment incorrecte");
+        assertTrue(bishop_24.isValidMove(0, 2, taulell_aux.MockBoard), "no permet moviment correcte");
+        assertTrue(bishop_24.isValidMove(0, 6, taulell_aux.MockBoard), "no permet moviment correcte");
+        assertTrue(bishop_24.isValidMove(4, 2, taulell_aux.MockBoard), "no permet moviment correcte");
+        assertTrue(bishop_24.isValidMove(5, 7, taulell_aux.MockBoard), "no permet moviment correcte");
+
+
     }
 
 }

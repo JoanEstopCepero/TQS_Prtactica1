@@ -88,6 +88,12 @@ public class BishopTest {
         assertTrue(bishop_24.isValidMove(4, 2, taulell_aux.MockBoard), "no permet moviment correcte");
         assertTrue(bishop_24.isValidMove(5, 7, taulell_aux.MockBoard), "no permet moviment correcte");
 
+        Piece bishop_54 = taulell_aux.getPiece(5,4);
+        assertFalse(bishop_54.isValidMove(2, 1, taulell_aux.MockBoard), "permet travessar fitxes");
+        assertFalse(bishop_54.isValidMove(8, 1, taulell_aux.MockBoard), "permet travessar fitxes");
+        Piece bishop_50B = taulell_aux.getPiece(5,0);
+        assertFalse(bishop_50B.isValidMove(2, 3, taulell_aux.MockBoard), "permet travessar fitxes");
+        assertFalse(bishop_50B.isValidMove(8, 3, taulell_aux.MockBoard), "permet travessar fitxes");
 
     }
 

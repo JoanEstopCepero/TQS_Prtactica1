@@ -89,4 +89,8 @@ public class Board{
         }
         return null; //No hay rey
     }
+
+    public boolean isKingInCheck(boolean isWhiteKing) {
+        return false;
+    }
 }

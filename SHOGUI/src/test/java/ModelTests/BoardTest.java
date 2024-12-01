@@ -2,10 +2,12 @@ package ModelTests;
 import Model.Piece;
 import Model.pieces.Pawn;
 import Model.pieces.Rook;
+import Model.pieces.King;
 import Model.Board;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
+import org.mockito.*;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -14,6 +16,45 @@ import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
 public class BoardTest {
+    public class MockBoard extends Board
+    {
+        private Piece[][] MockBoard = new Piece[9][9];
+        public MockBoard(){
+            initializeBoard();
+        }
+        public void initializeBoard(){
+            MockBoard[4][0] = new King(4, 0, true);
+            MockBoard[4][8] = new King(4, 8, false);
+
+
+            MockBoard[5][5] = new Rook(5, 5, false);
+            MockBoard[8][8] = new Rook(8, 8, false);
+            MockBoard[5][2] = new Pawn(2, 4, true);
+            MockBoard[2][5] = new Pawn(3, 3, false);
+        }
+        public Piece getPiece(int x, int y) {
+            return MockBoard[x][y];
+        }
+    }
+    public class MockBoard2 extends Board
+    {
+        private Piece[][] MockBoard2 = new Piece[9][9];
+        public MockBoard2(){
+            initializeBoard();
+        }
+        public void initializeBoard(){
+            MockBoard2[4][0] = new King(4, 0, true);
+            MockBoard2[4][8] = new King(4, 8, false);
+
+
+            MockBoard2[7][0] = new Rook(5, 5, false);
+            MockBoard2[8][8] = new Rook(8, 8, true);
+        }
+        public Piece getPiece(int x, int y) {
+            return MockBoard2[x][y];
+        }
+    }
+
     @Test
     void testConstructorBoard(){
         Board tauler = new Board();
@@ -171,7 +212,18 @@ public class BoardTest {
         assertNull(position2);
     }
 
-    
+    @Test
+    public void testKingInCheck() {
+        MockBoard tauler = new MockBoard();
+        assertFalse(tauler.isKingInCheck(true), "detecta hake quan no n'hi ha");
+        assertTrue(tauler.isKingInCheck(false), "detecta hake quan no n'hi ha");
+
+        MockBoard2 tauler2 = new MockBoard2();
+        assertFalse(tauler2.isKingInCheck(false), "no detecta hake");
+        assertTrue(tauler2.isKingInCheck(true), "no detecta hake");
+    }
+
+
 
 
 }

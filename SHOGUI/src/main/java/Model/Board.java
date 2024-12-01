@@ -3,11 +3,15 @@ import Model.pieces.*;
 
 public class Board{
     //Atributs
-    private Piece[][] board = new Piece[9][9];
+    public Piece[][] board = new Piece[9][9];
+    private boolean gameOver;
 
     //Metodes
     public Board() {
         initializeBoard();
+    }
+    public boolean isGameOver() {
+        return gameOver;
     }
     private void initializeBoard() {
         // --- Inicialización de las piezas ---
@@ -74,5 +78,7 @@ public class Board{
         return board[x][y];
     }
 
-
+    public int[] findKing(boolean isWhiteKing) {
+        return null;
+    }
 }

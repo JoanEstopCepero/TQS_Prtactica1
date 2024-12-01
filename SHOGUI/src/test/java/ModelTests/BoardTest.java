@@ -4,6 +4,9 @@ import Model.pieces.Pawn;
 import Model.pieces.Rook;
 import Model.Board;
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -153,5 +156,21 @@ public class BoardTest {
         System.setOut(System.out);
 
     }
+    @Test
+    void testFindKing() {
+        Board tauler = new Board();
+        assertArrayEquals(new int[] {4, 0},tauler.findKing(true), "no troba al rei blanc");
+        assertArrayEquals(new int[] {4, 8},tauler.findKing(false), "no troba al rei negre");
+
+        tauler.board[4][0] = null;
+        int[] position = tauler.findKing(true);
+        assertNull(position);
+
+        tauler.board[4][8] = null;
+        int[] position2 = tauler.findKing(false);
+        assertNull(position2);
+    }
+
+
 
 }

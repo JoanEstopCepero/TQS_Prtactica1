@@ -16,44 +16,6 @@ import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
 public class BoardTest {
-    public class MockBoard extends Board
-    {
-        private Piece[][] MockBoard = new Piece[9][9];
-        public MockBoard(){
-            initializeBoard();
-        }
-        public void initializeBoard(){
-            MockBoard[4][0] = new King(4, 0, true);
-            MockBoard[4][8] = new King(4, 8, false);
-
-
-            MockBoard[5][5] = new Rook(5, 5, false);
-            MockBoard[8][8] = new Rook(8, 8, false);
-            MockBoard[5][2] = new Pawn(2, 4, true);
-            MockBoard[2][5] = new Pawn(3, 3, false);
-        }
-        public Piece getPiece(int x, int y) {
-            return MockBoard[x][y];
-        }
-    }
-    public class MockBoard2 extends Board
-    {
-        private Piece[][] MockBoard2 = new Piece[9][9];
-        public MockBoard2(){
-            initializeBoard();
-        }
-        public void initializeBoard(){
-            MockBoard2[4][0] = new King(4, 0, true);
-            MockBoard2[4][8] = new King(4, 8, false);
-
-
-            MockBoard2[7][0] = new Rook(5, 5, false);
-            MockBoard2[8][8] = new Rook(8, 8, true);
-        }
-        public Piece getPiece(int x, int y) {
-            return MockBoard2[x][y];
-        }
-    }
 
     @Test
     void testConstructorBoard(){
@@ -214,13 +176,26 @@ public class BoardTest {
 
     @Test
     public void testKingInCheck() {
-        MockBoard tauler = new MockBoard();
-        assertFalse(tauler.isKingInCheck(true), "detecta hake quan no n'hi ha");
-        assertTrue(tauler.isKingInCheck(false), "detecta hake quan no n'hi ha");
+        Board tauler = new Board();
+        tauler.cleanBoard();
+        Rook whiteRook = new Rook(0, 0, true);
+        Rook blackRook = new Rook(8, 8, false);
+        King whiteKing = new King(4, 0, true);
+        King blackKing= new King(4, 8, false);
 
-        MockBoard2 tauler2 = new MockBoard2();
-        assertFalse(tauler2.isKingInCheck(false), "no detecta hake");
-        assertTrue(tauler2.isKingInCheck(true), "no detecta hake");
+        tauler.board[4][0] = whiteKing;
+        tauler.board[0][0] = whiteRook;
+        tauler.board[4][8] = blackKing;
+        tauler.board[8][8] = blackRook;
+        assertFalse(tauler.isKingInCheck(true), "detecta hake quan no n'hi ha");
+        assertFalse(tauler.isKingInCheck(false), "detecta hake quan no n'hi ha");
+
+        Rook whiteRook2 = new Rook(8, 8, true);
+        Rook blackRook2 = new Rook(0, 0, false);
+        tauler.board[0][0] = blackRook2;
+        tauler.board[8][8] = whiteRook2;
+        assertTrue(tauler.isKingInCheck( true), "no detecta hake");
+        assertTrue(tauler.isKingInCheck( false), "no detecta hake");
     }
 
 

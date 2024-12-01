@@ -91,6 +91,29 @@ public class Board{
     }
 
     public boolean isKingInCheck(boolean isWhiteKing) {
+        int[] kingPosition = findKing(isWhiteKing);
+        if (kingPosition == null) return false;
+
+        int kingX = kingPosition[0];
+        int kingY = kingPosition[1];
+
+        for (int x = 0; x < 9; x++) {
+            for (int y = 0; y < 9; y++) {
+                Piece piece = board[x][y];
+                if (piece != null && piece.isWhite() != isWhiteKing) {
+                    if (piece.isValidMove(kingX, kingY, board)) {
+                        return true;
+                    }
+                }
+            }
+        }
         return false;
+    }
+    public void cleanBoard(){
+        for (int x = 0; x < 9; x++) {
+            for (int y = 0; y < 9; y++) {
+                board[x][y] = null;
+            }
+        }
     }
 }

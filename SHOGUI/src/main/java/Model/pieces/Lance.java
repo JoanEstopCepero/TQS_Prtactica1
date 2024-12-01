@@ -1,5 +1,5 @@
 package Model.pieces;
-import Model.Piece
+import Model.Piece;
 public class Lance extends Piece{
     public Lance(int x, int y, boolean isWhite) {
         super("L", x, y, isWhite);

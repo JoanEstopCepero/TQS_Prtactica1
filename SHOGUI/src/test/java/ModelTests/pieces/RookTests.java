@@ -97,9 +97,10 @@ public class RookTests {
         assertFalse(rook_55B.isValidMove(5, 0, taulell_aux.MockBoard), "permet atravessar");
         assertFalse(rook_55B.isValidMove(7, 7, taulell_aux.MockBoard), "permet diagonals");
 
-
-
-
+        assertTrue(rook_55B.isValidMove(5, 2, taulell_aux.MockBoard), "no permet enjar blanques");
+        assertFalse(rook_55B.isValidMove(2, 5, taulell_aux.MockBoard), "permet menjar negres");
+        assertTrue(rook_22.isValidMove(2, 5, taulell_aux.MockBoard), "no permet menjar negres");
+        assertFalse(rook_22.isValidMove(5, 2, taulell_aux.MockBoard), "permet menjar blanques");
     }
 
 }

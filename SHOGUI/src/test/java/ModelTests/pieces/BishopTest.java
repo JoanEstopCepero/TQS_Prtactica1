@@ -24,7 +24,7 @@ public class BishopTest {
             MockBoard[5][4] = new Bishop(5, 4, true);
 
             MockBoard[5][0] = new Bishop(5, 0, false);
-            MockBoard[7][7] = new Bishop(7, 7, false);
+            MockBoard[8][8] = new Bishop(8, 8, false);
 
             MockBoard[3][2] = new Pawn(3, 2, false);
             MockBoard[7][2] = new Pawn(7, 2, true);
@@ -95,6 +95,12 @@ public class BishopTest {
         assertFalse(bishop_50B.isValidMove(2, 3, taulell_aux.MockBoard), "permet travessar fitxes");
         assertFalse(bishop_50B.isValidMove(8, 3, taulell_aux.MockBoard), "permet travessar fitxes");
 
+        Piece bishop_88B = taulell_aux.getPiece(8,8);
+        assertTrue(bishop_88B.isValidMove(7, 7, taulell_aux.MockBoard), "no permet mov valid");
+        assertTrue(bishop_88B.isValidMove(6, 6, taulell_aux.MockBoard), "no permet mov valid");
+        assertTrue(bishop_88B.isValidMove(3, 3, taulell_aux.MockBoard), "no permet mov valid");
+        assertTrue(bishop_88B.isValidMove(1, 1, taulell_aux.MockBoard), "no permet mov valid");
+        assertTrue(bishop_88B.isValidMove(0, 0, taulell_aux.MockBoard), "no permet mov valid");
     }
 
 }

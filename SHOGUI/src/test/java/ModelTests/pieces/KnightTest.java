@@ -84,5 +84,15 @@ public class KnightTest {
         assertFalse(knight_88.isValidMove(9, 9, taulell_aux_w.MockBoardW), "es mou fora taulell");
         assertFalse(knight_88.isValidMove(7, 9, taulell_aux_w.MockBoardW), "es mou fora taulell");
 
+        Piece knight_24 = taulell_aux_w.getPiece(2,4);
+        assertTrue(knight_24.isValidMove(3, 6, taulell_aux_w.MockBoardW), "no permet moviment correcte");
+        assertTrue(knight_24.isValidMove(1, 6, taulell_aux_w.MockBoardW), "no permet moviment correcte");
+
+        assertFalse(knight_24.isValidMove(1, 2, taulell_aux_w.MockBoardW), "permet moures enrere");
+        assertFalse(knight_24.isValidMove(3, 2, taulell_aux_w.MockBoardW), "permet moures enrere");
+        assertFalse(knight_24.isValidMove(3, 4, taulell_aux_w.MockBoardW), "permet moviments incorrectes");
+        assertFalse(knight_24.isValidMove(2, 5, taulell_aux_w.MockBoardW), "permet moviments incorrectes");
+
+
     }
 }

@@ -88,8 +88,8 @@ public class LanceTest {
         assertTrue(lance_22.isValidMove(2, 6, taulell_aux.MockBoard), "no permet moviment correcte");
         Piece lance_55B = taulell_aux.getPiece(5,5);
         assertFalse(lance_55B.isValidMove(5, 6, taulell_aux.MockBoard), "permet moviment enrere");
-        assertTrue(lance_22.isValidMove(5, 3, taulell_aux.MockBoard), "no permet moviment correcte");
-        assertTrue(lance_22.isValidMove(5, 0, taulell_aux.MockBoard), "no permet moviment correcte");
+        assertTrue(lance_55B.isValidMove(5, 3, taulell_aux.MockBoard), "no permet moviment correcte");
+        assertTrue(lance_55B.isValidMove(5, 0, taulell_aux.MockBoard), "no permet moviment correcte");
 
 
     }

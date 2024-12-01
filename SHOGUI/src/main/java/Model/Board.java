@@ -152,4 +152,13 @@ public class Board{
         }
         return true;
     }
+    public void checkGameOver() {
+        if (isKingInCheckmate(true)) {
+            System.out.println("¡Jaque mate! El jugador negro gana.");
+            gameOver = true;
+        } else if (isKingInCheckmate(false)) {
+            System.out.println("¡Jaque mate! El jugador blanco gana.");
+            gameOver = true;
+        }
+    }
 }

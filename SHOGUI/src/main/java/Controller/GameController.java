@@ -7,6 +7,9 @@ import java.util.Scanner;
 public class GameController {
     private final Board board;
 
+    public GameController(Board board) {
+        this.board = board != null ? board : new Board();
+    }
     public GameController() {
         this.board = new Board();    }
 

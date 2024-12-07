@@ -1,7 +1,8 @@
 package Model;
+
 import Model.pieces.*;
 
-public class Board{
+public class Board {
     //Atributs
     public Piece[][] board = new Piece[9][9];
     public boolean gameOver;
@@ -10,9 +11,11 @@ public class Board{
     public Board() {
         initializeBoard();
     }
+
     public boolean isGameOver() {
         return gameOver;
     }
+
     private void initializeBoard() {
         // --- Inicialización de las piezas ---
         board[0][0] = new Lance(0, 0, true);
@@ -49,6 +52,7 @@ public class Board{
             board[i][6] = new Pawn(i, 6, false);
         }
     }
+
     public boolean movePiece(int x, int y, int newX, int newY) {
         Piece piece = board[x][y];
         if (piece != null && piece.isValidMove(newX, newY, board)) {
@@ -73,6 +77,7 @@ public class Board{
             System.out.println();
         }
     }
+
     //Getters
     public Piece getPiece(int x, int y) {
         return board[x][y];
@@ -109,7 +114,8 @@ public class Board{
         }
         return false;
     }
-    public void cleanBoard(){
+
+    public void cleanBoard() {
         for (int x = 0; x < 9; x++) {
             for (int y = 0; y < 9; y++) {
                 board[x][y] = null;
@@ -152,6 +158,7 @@ public class Board{
         }
         return true;
     }
+
     public void checkGameOver() {
         if (isKingInCheckmate(true)) {
             System.out.println("¡Jaque mate! El jugador negro gana.");

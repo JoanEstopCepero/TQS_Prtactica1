@@ -7,8 +7,8 @@ public class Knight extends Piece {
         super("N", x, y, isWhite);
     }
     @Override
-    public boolean isValidMove(int newX, int newY, Piece[][] board){
-        if((newX >= 0 && newX < 9)&&(newY >= 0 && newY < 9))
+    public boolean isValidMove(int newX, int newY, Piece[][] board) {
+        if ((newX >= 0 && newX < 9) && (newY >= 0 && newY < 9))
         {
             int dx = Math.abs(newX - x);
             int dy = newY - y;

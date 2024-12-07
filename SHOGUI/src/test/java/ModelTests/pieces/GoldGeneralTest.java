@@ -31,13 +31,15 @@ public class GoldGeneralTest {
             return MockBoardW[x][y];
         }
     }
-    public class MockBoardB extends Board
-    {
+
+    public class MockBoardB extends Board {
         private Piece[][] MockBoardB = new Piece[9][9];
-        public MockBoardB(){
+
+        public MockBoardB() {
             initializeBoard();
         }
-        public void initializeBoard(){
+
+        public void initializeBoard() {
             MockBoardB[0][0] = new GoldGeneral(0, 0, false);
             MockBoardB[8][8] = new GoldGeneral(8, 8, false);
 
@@ -47,6 +49,7 @@ public class GoldGeneralTest {
             MockBoardB[6][3] = new Pawn(6, 3, true);
             MockBoardB[5][5] = new Pawn(5, 5, false);
         }
+
         public Piece getPiece(int x, int y) {
             return MockBoardB[x][y];
         }

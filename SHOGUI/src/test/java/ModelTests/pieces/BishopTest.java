@@ -76,7 +76,7 @@ public class BishopTest {
     @Test
     void testIsValidMoveBishop(){
         MockBoard taulell_aux = new MockBoard();
-        Piece bishop_24 = taulell_aux.getPiece(2,4);
+        Piece bishop_24 = taulell_aux.getPiece(2, 4);
         assertFalse(bishop_24.isValidMove(-1, 1, taulell_aux.MockBoard), "es mou fora taulell");
         assertFalse(bishop_24.isValidMove(7, -1, taulell_aux.MockBoard), "es mou fora taulell");
         assertTrue(bishop_24.isValidMove(1, 3, taulell_aux.MockBoard), "no permet moviment correcte");
